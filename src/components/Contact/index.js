@@ -8,35 +8,39 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 const Contact = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const refForm = useRef()
-    useEffect(() => {
-            const timeoutId = setTimeout(() => {
-                setLetterClass('text-animate-hover')
-            }, 3000);
     
-            return () => clearTimeout(timeoutId); 
-        }, []);
+    useEffect(() => {
+        const timeoutId = setTimeout(() => {
+            setLetterClass('text-animate-hover')
+        }, 3000);
+
+        return () => clearTimeout(timeoutId); 
+    }, []);
+
     const sendEmail = (e) => {
         e.preventDefault()
 
+        // Updated EmailJS configuration - you'll need to replace these with your actual values
         emailjs
         .sendForm(
-            'gmail',
-            'template_jq1913v',
+            'service_0au17df', // Replace with your EmailJS service ID
+            'template_chcabea', // Replace with your EmailJS template ID
             refForm.current,
-            '0uMcKXFgMoebsEZsN'
+            'yCf_lbUlkCb1Snx69' // Replace with your EmailJS public key
         )
-
         .then (
-            () => {
+            (response) => {
+                console.log('SUCCESS!', response.status, response.text);
                 alert('Message successfully sent!')
-                window.location.reload(false)
-
+                refForm.current.reset() // Reset form instead of reloading page
             },
-            () => {
+            (error) => {
+                console.log('FAILED...', error);
                 alert('Failed to send the message, please try again')
             }
         )
     }
+
     return (
         <>
             <div className='container contact-page'>
@@ -49,9 +53,11 @@ const Contact = () => {
                         />
                     </h1>
                     <p>
-                        I am interested in freelance opportunities - especially on ambitious
-                        or large projects. However, if you have any other requests or
-                        questions, don't hesitate to contact me using below form either.
+                        I am interested in software development opportunities - especially 
+                        full-stack development and AI-powered applications. As a Computer Science 
+                        student with hands-on experience in Java, Spring Boot, React.js, and 
+                        modern web technologies, I'm always excited to work on challenging projects. 
+                        Don't hesitate to contact me using the form below.
                     </p>
 
                     <div className='contact-form'>
@@ -75,32 +81,27 @@ const Contact = () => {
                             </ul>
                         </form>
                     </div>
-
                 </div>
 
                 <div className='info-map'>
                     Soumay Khandelwal,
                     <br />
-                    India,
+                    Bharatpur, Rajasthan
                     <br />
-                    Kodiyan Mohalla <br />
-                    Bharatpur Rajasthan <br />
+                    India <br />
                     <span>soumaykhandelwal@gmail.com</span>
-
+                    <span>+91 89051 19525</span>
                 </div>
 
                 <div className='map-wrap'>
-                    <MapContainer center={[44.96366, 19.61045]} zoom={13}>
-                    <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                    <Marker position={[44.96366, 19.61045]}>
-                        <Popup>Soumay lives here, come over for a cup of coffee </Popup>
-
-                    </Marker>
-                    
+                    {/* Updated coordinates for Bharatpur, Rajasthan */}
+                    <MapContainer center={[27.2152, 77.4895]} zoom={13}>
+                        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+                        <Marker position={[27.2152, 77.4895]}>
+                            <Popup>Soumay lives here, come over for a cup of coffee!</Popup>
+                        </Marker>
                     </MapContainer>
                 </div>
-
-
             </div>
             <Loader type="pacman" />
         </>

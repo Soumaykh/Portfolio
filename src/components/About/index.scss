@@ -73,3 +73,33 @@
         transform: rotateX(90deg);
     }
 }
+
+
+.resume-download {
+    color: #ffd700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-decoration: none;
+    padding: 8px 10px;
+    border: 1px solid #ffd700;
+    border-radius: 4px;
+    background: transparent;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: sans-serif;
+    font-weight: 400;
+
+    &:hover {
+        background: #ffd700;
+        color: #000;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(255, 215, 0, 0.3);
+    }
+
+    &:active {
+        transform: translateY(0);
+    }
+}
