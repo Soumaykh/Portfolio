@@ -9,7 +9,7 @@ import Loader from 'react-loaders';
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const nameArray = ['o','u','m','a','y']
-    const jobArray = ['S','o','f','t','w','a','r','e',' ','E','n','g','i','n','e','e','r','.']
+    const jobArray = ['C','o','m','p','u','t','e','r',' ','S','c','i','e','n','c','e','','S','t','u','d','e','n','t','.']
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -38,7 +38,7 @@ const Home = () => {
                 strArray={jobArray}
                 idx={22} />
                 </h1>
-                <h2>Full-Stack Developer / Java & Spring Boot Expert / AI Enthusiast</h2>
+                <h2>Full-Stack Developer / Java & Spring Boot Expert / Database Expert</h2>
                 <Link to="/contact" className='flat-button'>CONTACT ME</Link>
             </div>
             <Logo />

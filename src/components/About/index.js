@@ -46,7 +46,7 @@ const About = () => {
             />
           </h1>
           <p>
-            I'm an aspiring Software Engineer with strong skills in Java, Spring Boot, 
+            I'm an aspiring CSE student with strong skills in Java, Spring Boot, 
             and modern web technologies. Currently pursuing B.Tech in Computer Science 
             at VIT with a CGPA of 8.57, I'm passionate about building efficient, 
             scalable software solutions.
